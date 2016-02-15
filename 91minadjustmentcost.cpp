@@ -71,15 +71,15 @@ int MinAdjustmentCost2(vector<int> A, int target)
 
 ////////////////////////////////
 //memorization to speed up optimization
-int MinAdjustmentCost2(vector<int> A, int target)
+int MinAdjustmentCost3(vector<int> A, int target)
 {
   vector<int>B(A);
 
-  int min_cost = INT_MAX;
-
   int cost = 0;
 
-  MinAdjustmentCost_helper2(A, B, 0, target, cost, min_cost);
+  vector<vector<int> > m(A.size(), vector<int>(100, INT_MAX));
+
+  int min_cost = MinAdjustmentCost_helper3(A, B, 0, target, m);
 
   return min_cost;
 }
